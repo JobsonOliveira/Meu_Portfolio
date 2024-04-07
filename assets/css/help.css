@@ -1,0 +1,623 @@
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*DEFAULT*/
+
+:root {
+    --jb-cor-primaria: #000e33;
+    --jb-cor-secundaria: #f4f4f2;
+    --jb-cor-tercearia: #191013;
+    --jb-background-header-footer: rgba(0, 0, 0, .3);
+    --jb-cor-buttons: #8989898c;
+    --jb-cor-chosen: #ffffff;
+
+    --jb-fonte-titulo: "Roboto", sans-serif;
+    --jb-fonte-texto: "Raleway", sans-serif;
+}
+
+
+/*LIGHT MODE*/
+/*
+:root {
+    --jb-cor-primaria: #ffffff;
+    --jb-cor-secundaria: #000e33;
+    --jb-cor-tercearia: #191013;
+    --jb-background-header-footer: #ffffff;
+    --jb-cor-buttons: #0000002c;
+    --jb-cor-chosen: #000000;
+
+    --jb-fonte-titulo: "Roboto", sans-serif;
+    --jb-fonte-texto: "Raleway", sans-serif;
+}*/
+
+/*DARK MODE*/
+/*
+:root {
+    --jb-cor-primaria: #000;
+    --jb-cor-secundaria: #838383;
+    --jb-cor-tercearia: #191013;
+    --jb-background-header-footer: #000;
+    --jb-cor-buttons: #838383;
+    --jb-cor-chosen: #000000;
+
+    --jb-fonte-titulo: "Roboto", sans-serif;
+    --jb-fonte-texto: "Raleway", sans-serif;
+}*/
+
+body {
+    background-image: url("../background/background.png");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+body::-webkit-scrollbar{
+    background-color: var(--jb-cor-primaria);
+    border-left: 1px solid var(--jb-cor-secundaria);
+    width: 12px;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: var(--jb-cor-secundaria);
+    border: .5px solid var(--jb-cor-secundaria);
+}
+
+/*DIALOG PÁRA APRESENTAR AS FOTOS MAIS DE PERTO*/
+.jb-ampliar {
+    
+    background-color: rgba(255, 255, 255, .6);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border: none;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: fixed;
+    z-index: 1000;
+}
+
+/*DIV COM O CONTEÚDO DO DIALOG*/
+.jb-ampliar-conteudo {
+height: max-content;
+width: max-content;
+padding: 5px;
+border: 1px solid var(--jb-cor-tercearia);
+border-radius: 10px;
+}
+
+
+/*-------------------------------------------HEADER------------------------------------*/
+.jb-header-footer {
+    background-color: var(--jb-background-header-footer);
+    padding: 10px 50px;
+    align-items: center;
+    position: relative;
+}
+
+.jb-top {
+    box-shadow: 0px 0px 9px 1px var(--jb-cor-secundaria);
+    display: flex;
+    gap: 50px;
+    justify-content: left;
+}
+
+/*SESSÃO COM A FOTO NO HEADER*/
+.jb-top-fotoSessao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*IMAGEM DA PESSOA NO HEADER*/
+.jb-top-imagem {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--jb-cor-secundaria);
+    border: 1px solid var(--jb-cor-buttons);
+}
+
+.jb-top-imagem:hover {
+    border: 1px solid var(--jb-cor-tercearia);
+    box-shadow: 0px 0px 6px 3px var(--jb-cor-secundaria);
+}
+
+/*IMAGEM DA PESSOA AMPLIADA NO DIALOG*/
+.jb-top-imagem-ampliada {
+    width: 455px;
+    height: 455px;
+}
+
+/*SESSÃO COM O H1 DO NOME DA PESSOA NO HEADER*/
+.jb-top-sessaoNome {
+    display: flex;
+    height: 100px;
+    align-items: center;
+    padding: 5px;
+}
+
+/*H1 COM OS SPANS E AS LETRAS DO NOME*/
+.jb-top-nome {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/*NOME DA PESSOA NO HEADER*/
+.jb-top-sessaoNome span{
+    display: inline-block;
+    overflow: hidden;
+    -webkit-animation: textAnim 6s infinite linear;
+    color: transparent;
+    text-align: center;
+    font-size: 2.2rem;
+    padding: 0 3px;
+    font-family: var(--jb-fonte-titulo);
+    font-weight: 600;
+}
+
+/*----SPAN COM LETRA DO NOME----*/
+.jb-top-sessaoNome span:nth-child(2) {
+    -webkit-animation-delay: .4s;
+}
+
+/*----SPAN COM LETRA DO NOME----*/
+.jb-top-sessaoNome span:nth-child(3) {
+    -webkit-animation-delay: .8s;
+}
+
+/*----SPAN COM LETRA DO NOME----*/
+.jb-top-sessaoNome span:nth-child(4) {
+    -webkit-animation-delay: 1.2s;
+}
+
+/*----SPAN COM LETRA DO NOME----*/
+.jb-top-sessaoNome span:nth-child(5) {
+    -webkit-animation-delay: 1.4s;
+}
+
+/*----SPAN COM LETRA DO NOME----*/
+.jb-top-sessaoNome span:nth-child(6) {
+    -webkit-animation-delay: 1.8s;
+}
+
+/*----SPAN COM LETRA DO NOME----*/
+.jb-top-sessaoNome span:nth-child(7) {
+    -webkit-animation-delay: 2.2s;
+    margin-left: 30px;
+}
+
+/*----SPAN COM LETRA DO NOME----*/
+.jb-top-sessaoNome span:nth-child(8) {
+    -webkit-animation-delay: 2.4s;
+}
+
+/*----SPAN COM LETRA DO NOME----*/
+.jb-top-sessaoNome span:nth-child(9) {
+    -webkit-animation-delay: 2.8s;
+    margin-left: 30px;
+}
+
+/*----SPAN COM LETRA DO NOME----*/
+.jb-top-sessaoNome span:nth-child(10) {
+    -webkit-animation-delay: 3.2s;
+}
+
+/*----SPAN COM LETRA DO NOME----*/
+.jb-top-sessaoNome span:nth-child(11) {
+    -webkit-animation-delay: 3.4s;
+}
+
+/*----SPAN COM LETRA DO NOME----*/
+.jb-top-sessaoNome span:nth-child(12) {
+    -webkit-animation-delay: 3.8s;
+}
+
+/*----SPAN COM LETRA DO NOME----*/
+.jb-top-sessaoNome span:nth-child(13) {
+    -webkit-animation-delay: 4.2s;
+}
+
+/*----SPAN COM LETRA DO NOME----*/
+.jb-top-sessaoNome span:nth-child(14) {
+    -webkit-animation-delay: 4.4s;
+}
+
+/*----SPAN COM LETRA DO NOME----*/
+.jb-top-sessaoNome span:nth-child(15) {
+    -webkit-animation-delay: 4.8s;
+}
+
+/*----SPAN COM LETRA DO NOME----*/
+.jb-top-sessaoNome span:nth-child(16) {
+    -webkit-animation-delay: 5.2s;
+}
+
+/*ANIMAÇÃO DE NOME*/
+@keyframes textAnim {
+    10%, 15% {
+        text-shadow: 2px 0px 5px var(--jb-cor-secundaria);
+        color: var(--jb-cor-secundaria);
+    }
+    70% {
+        text-shadow: none;
+        color: transparent;
+    }
+    100% {
+        text-shadow: none;
+        color: transparent;
+    }
+}
+
+/*SESSION WHIT DARK, LIGHT AND NORMAL MODE COLOR*/
+.jb-top-listModes {
+    border-radius: 12px;
+    height: max-content;
+    width: max-content;
+    display: grid;
+    padding: 1px;
+    gap: 10px;
+    list-style: none;
+    background-color: var(--jb-cor-buttons);
+    position: fixed;
+    left: 98%;
+    transform: translateX(-50%);
+}
+
+.jb-top-listModes:hover {
+    box-shadow: 0px 0px 9px 1px var(--jb-cor-secundaria);
+}
+
+.jb-top-list-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    padding: 2px;
+    opacity: .4;
+}
+
+
+.jb-top-img-colorMode {
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.jb-top-list-item:hover {
+    opacity: 1;
+}
+
+.chosen {
+    background-color: var(--jb-cor-chosen);
+    border-radius: 100px;
+    opacity: 1;
+}
+
+.jb-top-img-indioma {
+    width: 30px;
+}
+
+/*-------------------------------------------MAIN------------------------------------*/
+.jb-information {
+    padding: 0 50px;
+}
+
+/*SESSÃO COM OS TEXTOS E OS CERTIFICADOS*/
+.jb-information-txt-certif {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    height: max-content;
+}
+
+/*ARTICLE COM TITULO E TEXTO SOBRE MIM*/
+.jb-articles-information {
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    gap: 20px;
+    box-shadow: 5px 5px 9px 0px var(--jb-cor-secundaria);
+    padding: 10px;
+    background-color: var(--jb-cor-primaria);
+    border-radius: 5px;
+}
+
+/*TITULO "Sobre Mim"*/
+.jb-titles {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    font-family: var(--jb-fonte-titulo);
+    color: var(--jb-cor-secundaria);
+    border-bottom: 1px solid var(--jb-cor-secundaria);
+}
+
+/*TEXTO "Sobre MiM"*/
+.jb-textos {
+    font-size: 1rem;
+    font-family: var(--jb-fonte-texto);
+    color: var(--jb-cor-secundaria);
+}
+
+/*LISTA COM AS GRADUAÇÕES*/
+.jb-lista-formacoes {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+}
+
+/*ITENS DA LISTA DE GRADUAÇÕES*/
+.jb-formacoes-dados {
+    margin-bottom: 2px;
+    width: max-content;
+    color: var(--jb-cor-secundaria);
+}
+
+/*BUTTONS DO CARROUSEL DE CERTIFICADOS DO BOOSTRAP (CLASSE DO BOOTSTRAP)*/
+.carousel-control-next, .carousel-control-prev {
+    height: max-content;
+    padding: 32.9% 0;
+}
+
+/*BUTTONS PREV E NEXT DO CARROUSEL DE CERTTIFICADOS*/
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    filter: drop-shadow(0px 1px 0px black);
+}
+
+.carousel-control-next-icon:hover ,.carousel-control-prev-icon:hover {
+    filter: drop-shadow(0px 3px 0px var(--jb-cor-primaria))
+}
+
+/*CLASSE BOOTSTRAP DO ACORDEON*/
+.accordion-flush .accordion-item:last-child {
+    background-color: transparent;
+}
+
+/*CLASSE BOOTSTRAP DO BUTTOM DO ACORDEON*/
+.accordion-flush .accordion-item .accordion-button, .accordion-flush .accordion-item .accordion-button.collapsed {
+    background-color: transparent;
+    color: var(--jb-cor-secundaria);
+    font-weight: bold;
+}
+
+.accordion-button::after {
+    filter: drop-shadow(0px 1px 0px #fff);
+}
+
+.carousel-item {
+    border: 1px solid var(--jb-cor-secundaria);
+    border-radius: 0 0 5px 5px;
+}
+
+/*DIV COM O TEXTO SOBRE O CERTIFICADO (CLASSE DO BOOTSTRAP)*/
+.accordion-body {
+    border-radius: 0 0 5px 5px;
+    background-color: transparent;
+    color: var(--jb-cor-secundaria);
+}
+
+/*-------------------HARD SKILLS*/
+.jb-hard-skills {
+    margin-top: 100px;
+    border-top: 1px solid #000;
+}
+
+/*DIV COM AS IMGAENS DE HARD SKILLS*/
+.jb-hard-skills-img {
+    display: flex;
+    gap: 50px;
+    align-items: end;
+}
+
+/*IMAGENS DAS TECNOLOGIAS UTILIZADAS*/
+.jb-skills-img {
+    width: 69px;
+    filter: drop-shadow(0px 0px 1px #fff);
+}
+
+.jb-img-laravel {
+    width: 160px;
+    height: 50px;
+}
+
+/*------------------SESSÃO DE PROJETOS*/
+.jb-projetos {
+    margin-top: 100px;
+    box-shadow: none;
+    box-shadow: 5px 5px 9px 0px var(--jb-cor-secundaria);
+}
+
+/*ARTICLE COM O CARROUSELK BOOTSTRAP E O TEXTO SOBRE O PROJETO*/
+.jb-projetos-article-dados {
+    display: grid;
+    height: max-content;
+    gap: 10px;
+    align-items: start;
+    border-radius: 5px;
+    box-shadow: var(--jb-cor-secundaria) 0px 0px 9px 2px;
+}
+
+/*PARÁGRAFO DE TEXTO DO PROJETO*/
+.jb-projetos-texto {
+    display: grid;
+    font-size: 1rem;
+    font-family: var(--jb-fonte-texto);
+    text-align: left;
+    margin: 0;
+    max-height: 461px;
+    padding: 4px;
+}
+
+.jb-projetos-link {
+    background-color: var(--jb-cor-primaria);
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--jb-cor-secundaria);
+    box-shadow: var(--jb-cor-secundaria) 0px 0px 1px 1px;
+}
+
+
+
+/*--------------DIV COM OS CARROUSELS DE PROJETOS*/
+.jb-projetos-carrousel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+/*BUTTONS DE SELEÇÃO DE IMAGEM (CLASSE BOOTSTAP)*/
+.carousel-indicators [data-bs-target] {
+    background-color: var(--jb-cor-tercearia);
+    border-bottom: none;
+}
+
+.buttons-carrousel-projetos {
+    padding: 22.4% 0;
+}
+
+/*SECTION WITH WORKING INFORMATION IN A COMPANY*/
+.jb-experience-companies {
+    background-color: var(--jb-cor-primaria);
+    border: 2px solid var(--jb-cor-secundaria);
+    border-radius: 6px;
+}
+
+/*ARTICLE WITH IS DATA FOR EXPERIENCE*/
+.jb-experience-data {
+    padding: 2px;
+    display: flex;
+    gap: 75px;
+    list-style-type: none;
+    border-bottom: 2px solid var(--jb-cor-secundaria);
+    padding: 5px;
+    justify-content: center;
+}
+
+.jb-experience-company {
+    padding: 2px;
+}
+
+/*TITLE FOR EXPERIENCE*/
+.jb-experience-title-two {
+    color: var(--jb-cor-secundaria);
+    font-family: var(--jb-fonte-titulo);
+}
+
+/*TEXT FOR EXPERIENCE*/
+.jb-experience-text {
+    color: var(--jb-cor-secundaria);
+    font-family: var(--jb-fonte-texto);
+}
+
+/*DESCRIPTION FOR EXPERIENCES*/
+.jb-experience-description {
+    padding: 5px;
+}
+
+.jb-experience-title-two {
+    font-family: var(--jb-fonte-titulo);
+    text-align: center;
+}
+
+.jb-experience-text {
+    font-family: var(--jb-fonte-texto);
+    text-align: center;
+}
+
+/*JOB DESCRIPTION TEXT*/
+.jb-experience-text-description {
+    text-align: left;
+}
+
+
+/*-------------------------------------------FOOTER------------------------------------*/
+
+.jb-footer {
+    margin-top: 100px;
+    padding: 0;
+    box-shadow: 0px 0px 9px 1px var(--jb-cor-secundaria);
+    padding-top: 10px;
+}
+
+/*CONTACTS LIST*/
+.jb-footer-contatos {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 0 50px;
+}
+
+.jb-contact-img {
+    width: 25px;
+    height: 25px;
+}
+
+.jb-footer-contact-link {
+    gap: 10px;
+}
+
+.jb-link-footer-instagram {
+    display: flex;
+    justify-content: end;
+}
+
+.jb-link-footer-github,
+.jb-link-footer-whatsapp {
+    display: flex;
+    justify-content: center;
+}
+
+.jb-footer-contact-link a {
+    text-decoration: none;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-family: var(--jb-fonte-texto);
+    color: var(--jb-cor-secundaria);
+    font-weight: 300;
+    width: max-content;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.jb-footer-contact-link a:hover {
+    box-shadow: 0px 0px 2px 2px var(--jb-cor-secundaria);
+    background-color: var(--jb-background-header-footer);
+}
+
+.jb-footer-end {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.jb-footer-title-email {
+    font-family: var(--jb-fonte-titulo);
+    color: var(--jb-cor-secundaria);
+}
+
+.jb-end-email-text {
+    font-family: var(--jb-fonte-texto);
+    color: var(--jb-cor-secundaria);
+    font-weight: 200;
+}
+
+.jb-end-copyright {
+    color: var(--jb-cor-secundaria);
+    font-family: var(--jb-fonte-texto);
+    margin-top: 20px;
+    font-weight: 200;
+}

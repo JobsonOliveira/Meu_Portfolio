@@ -1,0 +1,1535 @@
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*Default mode*/
+:root {
+    --jb-cor-primaria: #000e33;
+    --jb-cor-secundaria: #f4f4f2;
+    --jb-cor-tercearia: #191013;
+    --jb-cor-textos: #f4f4f2;
+    --jb-background-header-footer: rgba(0, 0, 0, .3);
+    --jb-cor-buttons: #8989898c;
+    --jb-cor-chosen: #ffffff;
+
+    --jb-fonte-titulo: "Roboto", sans-serif;
+    --jb-fonte-texto: "Raleway", sans-serif;
+}
+
+/*----------Animações---------*/
+/*animação do nome*/
+@keyframes jb-name-title-anim {
+    10%, 15% {
+        text-shadow: 2px 0px 5px var(--jb-cor-secundaria);
+        color: var(--jb-cor-textos);
+    }
+    70% {
+        text-shadow: none;
+        color: transparent;
+    }
+    100% {
+        text-shadow: none;
+        color: transparent;
+    }
+}
+
+/*Light mode*/
+
+/* :root {
+    --jb-cor-primaria: #f3f3f3;
+    --jb-cor-secundaria: #021c8b;
+    --jb-cor-tercearia: #191013;
+    --jb-cor-textos: #000;
+    --jb-background-header-footer: #ffffff;
+    --jb-cor-buttons: #0000002c;
+    --jb-cor-chosen: #000000;
+
+    --jb-fonte-titulo: "Roboto", sans-serif;
+    --jb-fonte-texto: "Raleway", sans-serif;
+} */
+
+/*Dark mode*/
+
+/* :root {
+    --jb-cor-primaria: #000;
+    --jb-cor-secundaria: #fc0000;
+    --jb-cor-tercearia: #191013;
+    --jb-cor-textos: #bbbbbb;
+    --jb-background-header-footer: #000;
+    --jb-cor-buttons: #838383;
+    --jb-cor-chosen: #000000;
+
+    --jb-fonte-titulo: "Roboto", sans-serif;
+    --jb-fonte-texto: "Raleway", sans-serif; 
+} */
+
+/*Estilos para o Pop-Up de tradução*/
+:is(#google_translate_element, .goog-te-banner-frame, .skiptranslate) {
+    display: none !important;
+}
+
+body {
+    background-image: url("../background/background.png");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: static !important;
+    width: fit-content;
+    
+}
+
+body::-webkit-scrollbar{
+    background-color: var(--jb-cor-primaria);
+    border-left: 1px solid var(--jb-cor-secundaria);
+    width: 12px;
+    
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color: var(--jb-cor-secundaria);
+    border: .5px solid var(--jb-cor-secundaria);
+}
+
+
+/*DIALOG PÁRA APRESENTAR AS FOTOS MAIS DE PERTO*/
+.jb-ampliar {
+        
+    background-color: rgba(255, 255, 255, .6);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border: none;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: fixed;
+    z-index: 1000;
+}
+
+/*DIV COM O CONTEÚDO DO DIALOG*/
+.jb-ampliar-conteudo {
+    height: max-content;
+    width: max-content;
+    padding: 5px;
+    border: 1px solid var(--jb-cor-tercearia);
+    border-radius: 10px;
+}
+
+/*IMAGEM DA PESSOA AMPLIADA NO DIALOG*/
+.jb-top-imagem-ampliada  {
+    width: 270px !important;
+    height: 270px !important;
+    border-radius: 10px;
+}
+
+.jb-top-imagem-ampliada:hover {
+    border: 1px solid var(--jb-cor-tercearia);
+    box-shadow: 0px 0px 6px 3px var(--jb-cor-secundaria);
+}
+
+/*-------------------------------------------HEADER------------------------------------*/
+
+/*Fica isolado, pois é referente a dois conteúdos*/
+.jb-header-footer {
+    background-color: var(--jb-background-header-footer);
+    padding: 5px 5px;
+    align-items: center;
+    position: relative;
+}
+
+.jb-top {
+    box-shadow: 0px 0px 9px 1px var(--jb-cor-secundaria);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 55px;
+    justify-content: left;
+    position: relative;
+}
+
+/*SESSÃO COM A FOTO NO HEADER*/
+.jb-top-fotoSessao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*IMAGEM DA PESSOA NO HEADER*/
+.jb-top-imagem {
+    width: 200px;
+    height: 200px; 
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--jb-cor-textos);
+    border: 1px solid var(--jb-cor-buttons);
+}
+
+.jb-top-imagem:hover {
+    border: 1px solid var(--jb-cor-tercearia);
+    box-shadow: 0px 0px 6px 3px var(--jb-cor-secundaria);
+}
+
+/*SESSÃO COM O H1 DO NOME DA PESSOA NO HEADER*/
+.jb-top-sessaoNome {
+    display: flex;
+    height: max-content;
+    align-items: center;
+}
+
+/*H1 COM OS SPANS E AS LETRAS DO NOME*/
+.jb-top-nome {
+    /* display: flex; */
+    gap: 8px;
+    align-items: center;
+    width: 310px;
+    overflow-wrap: break-word;  
+    word-wrap: break-word; 
+    word-break: break-word;
+    text-align: center;
+}
+
+/*NOME DA PESSOA NO HEADER*/
+.jb-top-nome span{
+    display: inline-block;
+    overflow: hidden;
+    -webkit-animation: jb-name-title-anim 6s infinite linear;
+    color: transparent;
+    text-align: center;
+    font-size: 1.9rem;
+    padding: 0 3px;
+    font-family: var(--jb-fonte-titulo);
+    font-weight: 600;
+}
+
+/*----SPANS COM LETRA DO NOME----*/
+.jb-top-nome span:nth-child(2) {
+    -webkit-animation-delay: .4s;
+}
+
+.jb-top-nome span:nth-child(3) {
+    -webkit-animation-delay: .8s;
+}
+
+.jb-top-nome span:nth-child(4) {
+    -webkit-animation-delay: 1.2s;
+}
+
+.jb-top-nome span:nth-child(5) {
+    -webkit-animation-delay: 1.4s;
+}
+
+.jb-top-nome span:nth-child(6) {
+    -webkit-animation-delay: 1.8s;
+}
+
+.jb-top-nome span:nth-child(7) {
+    -webkit-animation-delay: 2.2s;
+    margin-left: 30px;
+}
+
+.jb-top-nome span:nth-child(8) {
+    -webkit-animation-delay: 2.4s;
+}
+
+.jb-top-nome span:nth-child(9) {
+    -webkit-animation-delay: 2.8s;
+}
+
+.jb-top-nome span:nth-child(10) {
+    -webkit-animation-delay: 3.2s;
+}
+
+.jb-top-nome span:nth-child(11) {
+    -webkit-animation-delay: 3.4s;
+}
+
+.jb-top-nome span:nth-child(12) {
+    -webkit-animation-delay: 3.8s;
+}
+
+.jb-top-nome span:nth-child(13) {
+    -webkit-animation-delay: 4.2s;
+}
+
+.jb-top-nome span:nth-child(14) {
+    -webkit-animation-delay: 4.4s;
+}
+
+.jb-top-nome span:nth-child(15) {
+    -webkit-animation-delay: 4.8s;
+}
+
+.jb-top-nome span:nth-child(16) {
+    -webkit-animation-delay: 5.2s;
+}
+
+.jb-top-modificadores {
+    position: fixed;
+    left: 92%;
+    transform: translateX(-50%);
+    top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+/*SESSION WHIT DARK, LIGHT AND NORMAL MODE COLOR*/
+.jb-top-listModes {
+
+    border-radius: 17px;
+    height: max-content;
+    width: max-content;
+    display: grid;
+    padding: 1px;
+    gap: 10px;
+    list-style: none;
+    background-color: var(--jb-cor-buttons);
+}
+
+.jb-top-listModes:hover {
+    box-shadow: 0px 0px 9px 1px var(--jb-cor-secundaria);
+}
+
+.jb-top-list-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    padding: 2px;
+    opacity: .4;
+}
+
+.jb-top-list-item:hover {
+    opacity: 1;
+}
+
+.jb-top-img-colorMode {
+    width: 30px;
+    height: 30px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.chosen {
+    background-color: var(--jb-cor-chosen);
+    border-radius: 100px;
+    opacity: 1;
+}
+
+.jb-top-idiomas-section {
+    display: grid;
+    gap: 10px;
+}
+
+.btn:hover {
+    background-color: transparent;
+}
+
+.jb-top-idiomas {
+    margin: 0;
+    line-height: normal;
+}
+
+.btn-primary {
+    width: max-content;
+    height: max-content;
+    border-radius: 0;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+}
+
+.card-body {
+    padding: 0;
+    border-radius: 0;
+    margin-bottom: 5px;
+    background-color: transparent;
+    margin: 0;
+    border: 0;
+}
+
+.jb-idiomas-bandeira {
+    width: 40px;
+    border-radius: 5px;
+}
+
+
+/*-------------------------------------------MAIN------------------------------------*/
+.jb-information {
+    padding: 0 5px;
+}
+
+/*Estilização geral dos articles do main*/
+.jb-articles-information {
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    gap: 20px;
+    box-shadow: 5px 5px 9px 0px var(--jb-cor-secundaria);
+    padding: 10px;
+    background-color: var(--jb-cor-primaria);
+    border-radius: 5px;
+}
+
+/*Estilização geral dos titulos do main*/
+.jb-titles {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: var(--jb-fonte-titulo);
+    color: var(--jb-cor-textos);
+    border-bottom: 1px solid var(--jb-cor-secundaria);
+}
+
+/*Estilização geral dos testos do main*/
+.jb-textos {
+    font-size: 1.2rem;
+    font-family: var(--jb-fonte-texto);
+    color: var(--jb-cor-textos);
+}
+
+/*SESSÃO COM OS TEXTOS E OS CERTIFICADOS*/
+.jb-information-txt-certif {
+    display: grid;
+    height: max-content;
+}
+
+/*LISTA COM AS GRADUAÇÕES*/
+.jb-lista-formacoes {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    padding: 0;
+    gap: 20px;
+}
+
+/*ITENS DA LISTA DE GRADUAÇÕES*/
+.jb-formacoes-dados {
+    margin-bottom: 2px;
+    width: 288px;
+    color: var(--jb-cor-textos);
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.jb-certificates :is(.carousel-control-next-icon ,.carousel-control-prev-icon):hover {
+    filter: drop-shadow(0px 3px 0px var(--jb-cor-primaria))
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    filter: drop-shadow(0px 2px 1px var(--jb-cor-secundaria)) !important;
+}
+
+/*Buttons de carrousel Bootstrap*/
+.carousel-control-next, .carousel-control-prev {
+    height: max-content;
+    padding: 32.9% 0;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    filter: drop-shadow(0px 1px 0px black);
+}
+
+/*CLASSE BOOTSTRAP DO ACORDEON*/
+.accordion-item .accordion-item:last-child {
+    background-color: transparent;
+}
+
+.accordion-flush .accordion-item:last-child {
+    border-radius: 0 0 5px 5px;
+    background-color: transparent;
+}
+
+.accordion-button,
+.accordion-button:not(.collapsed) {
+    background-color: var(--jb-cor-primaria);
+    color: var(--jb-cor-textos);
+    border-radius: 0 0 5px 5px !important;
+    outline: none;
+}
+
+.accordion-flush .accordion-item .accordion-button, .accordion-flush .accordion-item .accordion-button.collapsed {
+    font-size: 1.3rem;
+}
+
+
+.accordion-collapse {
+    background-color: var(--jb-cor-primaria);
+    border-radius: 0 0 5px 5px;
+    outline: none;
+}
+
+/*DIV COM O TEXTO SOBRE O CERTIFICADO (CLASSE DO BOOTSTRAP)*/
+.accordion-body {
+    border-radius: 0 0 5px 5px;
+    background-color: transparent;
+    color: var(--jb-cor-textos);
+    font-size: 1.2rem;
+}
+
+.carousel-item {
+    border: 1px solid var(--jb-cor-secundaria);
+    border-radius: 5px;
+}
+
+.d-block {
+    border-radius: 5px 5px 0 0;
+}
+
+/*-------------------HARD SKILLS*/
+.jb-hard-skills {
+    margin-top: 100px;
+    border-top: 1px solid #000;
+}
+
+/*DIV COM AS IMGAENS DE HARD SKILLS*/
+.jb-hard-skills-itens {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    align-items: end;
+    list-style-type: none;
+    padding: 0;
+    align-items: center;
+}
+
+.jb-hard-skills-itens li {
+    display: flex;
+    justify-content: center;
+}
+
+
+/*IMAGENS DAS TECNOLOGIAS UTILIZADAS*/
+.jb-skills-img {
+    width: 50px;
+  filter: drop-shadow(0px 0px 1px #fff);
+}
+
+.jb-skills-git {
+    width: 68px;
+}
+
+.accordion-button::after {
+    background-image: url('../setas/seta.svg');
+    filter: drop-shadow(0px 0px 3px var(--jb-cor-secundaria));
+}
+
+.accordion-button:not(.collapsed)::after{
+    background-image: url('../setas/seta.svg');
+    transform: var(--bs-accordion-btn-icon-transform);
+}
+
+.jb-img-laravel {
+    width: 120px;
+    height: 40px;
+}
+
+/*------------------SESSÃO DE PROJETOS*/
+.jb-projetos {
+    margin-top: 100px;
+    box-shadow: none;
+    box-shadow: 5px 5px 9px 0px var(--jb-cor-secundaria);
+}
+
+/*--------------DIV COM OS CARROUSELS DE PROJETOS*/
+.jb-projetos-carrousel {
+    display: grid;
+    gap: 50px;
+}
+
+/*ARTICLE COM O CARROUSELK BOOTSTRAP E O TEXTO SOBRE O PROJETO*/
+.jb-projetos-article-dados {
+    display: grid;
+    height: max-content;
+    gap: 10px;
+    align-items: start;
+    border-radius: 5px;
+    box-shadow: var(--jb-cor-secundaria) 0px 0px 9px 2px;
+}
+
+/*PARÁGRAFO DE TEXTO DO PROJETO*/
+.jb-projetos-texto {
+    display: grid;
+    font-size: 1.3rem;
+    font-family: var(--jb-fonte-texto);
+    text-align: left;
+    margin: 0;
+    height: max-content;
+    padding: 4px;
+}
+
+.jb-projetos-link {
+    background-color: var(--jb-cor-primaria);
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--jb-cor-textos);
+    box-shadow: var(--jb-cor-secundaria) 0px 0px 1px 1px;
+}
+
+/*BUTTONS DE SELEÇÃO DE IMAGEM (CLASSE BOOTSTAP)*/
+.carousel-indicators [data-bs-target] {
+    background-color: var(--jb-cor-tercearia);
+    border-bottom: none;
+}
+
+.buttons-carrousel-projetos {
+    padding: 22.4% 0;
+}
+
+/*SECTION WITH WORKING INFORMATION IN A COMPANY*/
+.jb-experience-companies {
+    background-color: var(--jb-cor-primaria);
+    border: 2px solid var(--jb-cor-secundaria);
+    border-radius: 6px;
+}
+
+/*ARTICLE WITH IS DATA FOR EXPERIENCE*/
+.jb-experience-data {
+    padding: 2px;
+    display: grid;
+    gap: 5px;
+    list-style-type: none;
+    border-bottom: 2px solid var(--jb-cor-secundaria);
+    padding: 5px;
+    justify-content: center;
+}
+
+.jb-experience-company {
+    padding: 2px;
+    text-align: center;
+}
+
+/*TITLE FOR EXPERIENCE*/
+.jb-experience-title-two {
+    color: var(--jb-cor-textos);
+    font-family: var(--jb-fonte-titulo);
+    font-size: 1.3rem;
+}
+
+/*TEXT FOR EXPERIENCE*/
+.jb-experience-text {
+    color: var(--jb-cor-textos);
+    font-family: var(--jb-fonte-texto);
+    font-size: 1.2rem;
+}
+
+/*DESCRIPTION FOR EXPERIENCES*/
+.jb-experience-description {
+    padding: 5px;
+}
+
+.jb-experience-title-two {
+    color: var(--jb-cor-textos);
+    font-family: var(--jb-fonte-titulo);;
+    text-align: center;
+}
+
+.jb-experience-text {
+    color: var(--jb-cor-textos);
+    font-family: var(--jb-fonte-texto);
+    text-align: center;
+}
+
+/*JOB DESCRIPTION TEXT*/
+.jb-experience-text-description {
+    text-align: left;
+}
+
+/*-------------------------------------------FOOTER------------------------------------*/
+
+.jb-footer {
+    margin-top: 100px;
+    padding: 0;
+    box-shadow: 0px 0px 9px 1px var(--jb-cor-secundaria);
+    padding-top: 10px;
+    display: grid;
+    align-items: end;
+    gap: 15px;
+}
+
+/*CONTACTS LIST*/
+.jb-footer-contatos {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 0 5px;
+}
+
+.jb-footer-contact-link {
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.jb-footer-contact-link a {
+    text-decoration: none;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-family: var(--jb-fonte-texto);
+    color: var(--jb-cor-textos);
+    font-weight: 300;
+    width: max-content;
+    border-radius: 5px;
+    padding: 4px;
+    font-size: 1.2rem;
+}
+
+.jb-footer-contact-link a:hover {
+    box-shadow: 0px 0px 2px 2px var(--jb-cor-secundaria);
+    background-color: var(--jb-background-header-footer);
+}
+
+.jb-contact-img {
+    width: 30px;
+    height: 30px;
+}
+
+.jb-footer-end {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.jb-footer-title-email {
+    font-family: var(--jb-fonte-titulo);
+    color: var(--jb-cor-textos);
+    font-size: 1.2rem;
+}
+
+.jb-end-email-text {
+    font-family: var(--jb-fonte-texto);
+    color: var(--jb-cor-textos);
+    font-weight: 200;
+    font-size: 1.2rem;
+}
+
+.jb-end-copyright {
+    color: var(--jb-cor-textos);
+    font-family: var(--jb-fonte-texto);
+    margin-top: 20px;
+    font-weight: 200;
+    font-size: 1rem;
+}
+
+
+
+
+
+
+/* ==============================576=============================== */
+
+
+
+
+
+
+@media (min-width: 576px) {
+    .jb-top {
+        display: flex;
+        flex-direction: row;
+        padding: 10px 10px;
+    }
+
+    .jb-top-modificadores {
+        left: 97%;
+    }
+
+    .jb-information {
+        padding: 10px 10px;
+    }
+
+    .jb-titles {
+        font-size: 2rem;
+    }
+
+    .jb-hard-skills-itens {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .jb-lista-formacoes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .jb-formacoes-dados {
+        width: 258px;
+    }
+    
+}
+
+
+
+
+
+
+
+
+/* ==============================768=============================== */
+
+
+
+
+
+
+
+@media (min-width: 768px) {
+
+    .jb-top-imagem-ampliada {
+        width: 400px !important;
+        height: 400px !important;
+    }
+
+    .jb-top-nome {
+        width: 470px;
+    }
+
+    .jb-lista-formacoes {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0px;
+    }
+
+    .jb-formacoes-dados {
+        width: 240px;
+    }
+
+    .jb-hard-skills-itens {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .jb-experience-data {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .jb-footer-contatos {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+/* ==============================992=============================== */
+
+
+
+
+
+
+
+@media (min-width: 992px) {
+    .jb-top {
+        padding: 15px 15px ;
+    }
+    
+    .jb-idiomas-bandeira {
+        width: 35px;
+    }
+
+    .jb-top-img-colorMode {
+        width: 25px;
+        height: 25px;
+    }
+
+    .jb-top-nome {
+        width: 697px;
+    }
+
+    .jb-top-nome span {
+        font-size: 2.6rem;
+    }
+
+    .jb-top-nome br {
+        display: none;
+    }
+
+    .jb-information {
+        padding: 15px 15px;
+    }
+
+    .jb-titles {
+        font-size: 2.3rem;
+    }
+
+    .jb-lista-formacoes {
+        gap: 20px;
+    }
+
+    .jb-textos {
+        font-size: 1.3rem;
+    }
+
+    .jb-formacoes-dados {
+        font-size: 1.3rem;
+    }
+
+    
+    .jb-hard-skills-itens {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+    
+    .jb-projetos-texto {
+        font-size: 1.3rem;
+    }
+
+    .jb-formacoes-dados {
+        width: 290px;
+    }
+
+    .jb-experience-title-two {
+        font-size: 1.3rem;
+    }
+
+    .jb-experience-text {
+        font-size: 1.2rem;
+    }
+
+    .jb-footer {
+        padding: 15px 15px;
+    }
+
+    .jb-contact-img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .jb-footer-contact-link a {
+        font-size: 1.3rem;
+    }
+
+    .jb-footer-title-email {
+        font-size: 1.3rem;
+    }
+
+    .jb-end-email-text {
+        font-size: 1.2rem;
+    }
+
+    .jb-end-copyright {
+        font-size: 1.1rem;
+    }
+}
+
+
+
+
+
+
+
+/* ==============================1200================================= */
+
+
+
+
+
+
+
+
+@media (min-width: 1200px) {
+    /*DIALOG PÁRA APRESENTAR AS FOTOS MAIS DE PERTO*/
+    .jb-ampliar {
+        
+        background-color: rgba(255, 255, 255, .6);
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        border: none;
+        outline: none;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        position: fixed;
+        z-index: 1000;
+    }
+    
+    /*DIV COM O CONTEÚDO DO DIALOG*/
+    .jb-ampliar-conteudo {
+        height: max-content;
+        width: max-content;
+        padding: 5px;
+        border: 1px solid var(--jb-cor-tercearia);
+        border-radius: 10px;
+    }
+    
+    /*IMAGEM DA PESSOA AMPLIADA NO DIALOG*/
+    .jb-top-imagem-ampliada  {
+        width: 455px !important;
+        height: 455px !important;
+        border-radius: 10px;
+    }
+    
+    .jb-top-imagem-ampliada:hover {
+        border: 1px solid var(--jb-cor-tercearia);
+        box-shadow: 0px 0px 6px 3px var(--jb-cor-secundaria);
+    }
+    
+    /*-------------------------------------------HEADER------------------------------------*/
+    
+    /*Fica isolado, pois é referente a dois conteúdos*/
+    .jb-header-footer {
+        background-color: var(--jb-background-header-footer);
+        padding: 10px 50px;
+        align-items: center;
+        position: relative;
+    }
+    
+    .jb-top {
+        box-shadow: 0px 0px 9px 1px var(--jb-cor-secundaria);
+        display: flex;
+        gap: 50px;
+        justify-content: left;
+        position: relative;
+    }
+    
+    /*SESSÃO COM A FOTO NO HEADER*/
+    .jb-top-fotoSessao {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /*IMAGEM DA PESSOA NO HEADER*/
+    .jb-top-imagem {
+        width: 150px;
+        height: 150px; 
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: var(--jb-cor-textos);
+        border: 1px solid var(--jb-cor-buttons);
+    }
+    
+    .jb-top-imagem:hover {
+        border: 1px solid var(--jb-cor-tercearia);
+        box-shadow: 0px 0px 6px 3px var(--jb-cor-secundaria);
+    }
+    
+    /*SESSÃO COM O H1 DO NOME DA PESSOA NO HEADER*/
+    .jb-top-sessaoNome {
+        display: flex;
+        height: 100px;
+        align-items: center;
+        padding: 5px;
+    }
+    
+    /*H1 COM OS SPANS E AS LETRAS DO NOME*/
+    .jb-top-nome {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+    
+.jb-top-nome br {
+    display: none;
+}
+
+    /*NOME DA PESSOA NO HEADER*/
+    .jb-top-nome span{
+        display: inline-block;
+        overflow: hidden;
+        -webkit-animation: jb-name-title-anim 6s infinite linear;
+        color: transparent;
+        text-align: center;
+        font-size: 2.2rem;
+        padding: 0 3px;
+        font-family: var(--jb-fonte-titulo);
+        font-weight: 600;
+    }
+    
+    /*----SPANS COM LETRA DO NOME----*/
+    .jb-top-nome span:nth-child(2) {
+        -webkit-animation-delay: .4s;
+    }
+    
+    .jb-top-nome span:nth-child(3) {
+        -webkit-animation-delay: .8s;
+    }
+    
+    .jb-top-nome span:nth-child(4) {
+        -webkit-animation-delay: 1.2s;
+    }
+    
+    .jb-top-nome span:nth-child(5) {
+        -webkit-animation-delay: 1.4s;
+    }
+    
+    .jb-top-nome span:nth-child(6) {
+        -webkit-animation-delay: 1.8s;
+    }
+    
+    .jb-top-nome span:nth-child(7) {
+        -webkit-animation-delay: 2.2s;
+        margin-left: 30px;
+    }
+    
+    .jb-top-nome span:nth-child(8) {
+        -webkit-animation-delay: 2.4s;
+    }
+    
+    .jb-top-nome span:nth-child(9) {
+        -webkit-animation-delay: 2.8s;
+        margin-left: 30px;
+    }
+    
+    .jb-top-nome span:nth-child(10) {
+        -webkit-animation-delay: 3.2s;
+    }
+    
+    .jb-top-nome span:nth-child(11) {
+        -webkit-animation-delay: 3.4s;
+    }
+    
+    .jb-top-nome span:nth-child(12) {
+        -webkit-animation-delay: 3.8s;
+    }
+    
+    .jb-top-nome span:nth-child(13) {
+        -webkit-animation-delay: 4.2s;
+    }
+    
+    .jb-top-nome span:nth-child(14) {
+        -webkit-animation-delay: 4.4s;
+    }
+    
+    .jb-top-nome span:nth-child(15) {
+        -webkit-animation-delay: 4.8s;
+    }
+    
+    .jb-top-nome span:nth-child(16) {
+        -webkit-animation-delay: 5.2s;
+    }
+    
+    .jb-top-modificadores {
+        position: fixed;
+        left: 98%;
+        transform: translateX(-50%);
+        top: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /*SESSION WHIT DARK, LIGHT AND NORMAL MODE COLOR*/
+    .jb-top-listModes {
+    
+        border-radius: 12px;
+        height: max-content;
+        width: max-content;
+        display: grid;
+        padding: 1px;
+        gap: 10px;
+        list-style: none;
+        background-color: var(--jb-cor-buttons);
+    }
+    
+    .jb-top-listModes:hover {
+        box-shadow: 0px 0px 9px 1px var(--jb-cor-secundaria);
+    }
+    
+    .jb-top-list-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        padding: 2px;
+        opacity: .4;
+    }
+    
+    .jb-top-list-item:hover {
+        opacity: 1;
+    }
+    
+    
+    .chosen {
+        background-color: var(--jb-cor-chosen);
+        border-radius: 100px;
+        opacity: 1;
+    }
+    
+   
+
+    .jb-top-idiomas {
+        margin: 0;
+        line-height: normal;
+    }
+    
+
+    .btn-primary {
+        width: max-content;
+        height: max-content;
+        border-radius: 0;
+        padding: 0;
+        background-color: transparent;
+        border: 0;
+    }
+    
+    .card-body {
+        padding: 0;
+        border-radius: 0;
+        margin-bottom: 5px;
+        background-color: transparent;
+        margin: 0;
+        border: 0;
+    }
+    
+    
+    /*-------------------------------------------MAIN------------------------------------*/
+    .jb-information {
+        padding: 0 50px;
+    }
+    
+    /*Estilização geral dos articles do main*/
+    .jb-articles-information {
+        height: max-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 100px;
+        gap: 20px;
+        box-shadow: 5px 5px 9px 0px var(--jb-cor-secundaria);
+        padding: 10px;
+        background-color: var(--jb-cor-primaria);
+        border-radius: 5px;
+    }
+    
+    /*Estilização geral dos titulos do main*/
+    .jb-titles {
+        display: flex;
+        justify-content: center;
+        font-size: 2rem;
+        font-family: var(--jb-fonte-titulo);
+        color: var(--jb-cor-textos);
+        border-bottom: 1px solid var(--jb-cor-secundaria);
+    }
+    
+    /*Estilização geral dos testos do main*/
+    .jb-textos {
+        font-size: 1rem;
+        font-family: var(--jb-fonte-texto);
+        color: var(--jb-cor-textos);
+    }
+    
+    /*SESSÃO COM OS TEXTOS E OS CERTIFICADOS*/
+    .jb-information-txt-certif {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        height: max-content;
+    }
+    
+    /*LISTA COM AS GRADUAÇÕES*/
+    .jb-lista-formacoes {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        width: max-content;
+        
+        
+    }
+    
+    /*ITENS DA LISTA DE GRADUAÇÕES*/
+    .jb-formacoes-dados {
+        margin-bottom: 2px;
+        width: max-content;
+        color: var(--jb-cor-textos);
+    }
+
+.jb-formacoes-dados br {
+    display: none;
+}
+    
+    .jb-certificates :is(.carousel-control-next-icon ,.carousel-control-prev-icon):hover {
+        filter: drop-shadow(0px 3px 0px var(--jb-cor-primaria))
+    }
+    
+    /*Buttons de carrousel Bootstrap*/
+    .carousel-control-next, .carousel-control-prev {
+        height: max-content;
+        padding: 32.9% 0;
+    }
+    
+    .carousel-control-next-icon, .carousel-control-prev-icon {
+        filter: drop-shadow(0px 1px 0px black);
+    }
+    
+    /*CLASSE BOOTSTRAP DO ACORDEON*/
+    .accordion-item .accordion-item:last-child {
+        background-color: transparent;
+    }
+    
+    .accordion-flush .accordion-item:last-child {
+        border-radius: 0 0 5px 5px;
+        background-color: transparent;
+    }
+    
+    .accordion-button,
+    .accordion-button:not(.collapsed) {
+        background-color: var(--jb-cor-primaria);
+        color: var(--jb-cor-textos);
+        border-radius: 0 0 5px 5px !important;
+        outline: none;
+    }
+    
+    
+    .accordion-collapse {
+        background-color: var(--jb-cor-primaria);
+        border-radius: 0 0 5px 5px;
+        outline: none;
+    }
+    
+    /*DIV COM O TEXTO SOBRE O CERTIFICADO (CLASSE DO BOOTSTRAP)*/
+    .accordion-body {
+        border-radius: 0 0 5px 5px;
+        background-color: transparent;
+        color: var(--jb-cor-textos);
+    }
+    
+    .carousel-item {
+        border: 1px solid var(--jb-cor-secundaria);
+        border-radius: 5px;
+    }
+    
+    .d-block {
+        border-radius: 5px 5px 0 0;
+    }
+    
+    /*-------------------HARD SKILLS*/
+    .jb-hard-skills {
+        margin-top: 100px;
+        border-top: 1px solid #000;
+    }
+    
+    /*DIV COM AS IMGAENS DE HARD SKILLS*/
+    .jb-hard-skills-itens {
+        display: flex;
+        gap: 50px;
+        align-items: end;
+    }
+    
+    /*IMAGENS DAS TECNOLOGIAS UTILIZADAS*/
+    .jb-skills-img {
+        width: 69px;
+      filter: drop-shadow(0px 0px 1px #fff);
+    }
+    
+    .accordion-button::after {
+        background-image: url('../setas/seta.svg');
+        filter: drop-shadow(0px 0px 3px var(--jb-cor-secundaria));
+    }
+    
+    .accordion-button:not(.collapsed)::after{
+        background-image: url('../setas/seta.svg');
+        transform: var(--bs-accordion-btn-icon-transform);
+    }
+    
+    .jb-img-laravel {
+        width: 160px;
+        height: 50px;
+    }
+    
+    /*------------------SESSÃO DE PROJETOS*/
+    .jb-projetos {
+        margin-top: 100px;
+        box-shadow: none;
+        box-shadow: 5px 5px 9px 0px var(--jb-cor-secundaria);
+    }
+    
+    /*--------------DIV COM OS CARROUSELS DE PROJETOS*/
+    .jb-projetos-carrousel {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+    }
+    
+    /*ARTICLE COM O CARROUSELK BOOTSTRAP E O TEXTO SOBRE O PROJETO*/
+    .jb-projetos-article-dados {
+        display: grid;
+        height: max-content;
+        gap: 10px;
+        align-items: start;
+        border-radius: 5px;
+        box-shadow: var(--jb-cor-secundaria) 0px 0px 9px 2px;
+    }
+    
+    /*PARÁGRAFO DE TEXTO DO PROJETO*/
+    .jb-projetos-texto {
+        display: grid;
+        font-size: 1rem;
+        font-family: var(--jb-fonte-texto);
+        text-align: left;
+        margin: 0;
+        max-height: 461px;
+        padding: 4px;
+    }
+    
+    .jb-projetos-link {
+        background-color: var(--jb-cor-primaria);
+        text-align: center;
+        margin-top: 20px;
+        border-radius: 5px;
+        padding: 10px;
+        text-decoration: none;
+        color: var(--jb-cor-textos);
+        box-shadow: var(--jb-cor-secundaria) 0px 0px 1px 1px;
+    }
+    
+    /*BUTTONS DE SELEÇÃO DE IMAGEM (CLASSE BOOTSTAP)*/
+    .carousel-indicators [data-bs-target] {
+        background-color: var(--jb-cor-tercearia);
+        border-bottom: none;
+    }
+    
+    .buttons-carrousel-projetos {
+        padding: 22.4% 0;
+    }
+    
+    /*SECTION WITH WORKING INFORMATION IN A COMPANY*/
+    .jb-experience-companies {
+        background-color: var(--jb-cor-primaria);
+        border: 2px solid var(--jb-cor-secundaria);
+        border-radius: 6px;
+    }
+    
+    /*ARTICLE WITH IS DATA FOR EXPERIENCE*/
+    .jb-experience-data {
+        padding: 2px;
+        display: flex;
+        gap: 75px;
+        list-style-type: none;
+        border-bottom: 2px solid var(--jb-cor-secundaria);
+        padding: 5px;
+        justify-content: center;
+    }
+    
+    .jb-experience-company {
+        padding: 2px;
+        text-align: center;
+    }
+    
+    /*TITLE FOR EXPERIENCE*/
+    .jb-experience-title-two {
+        color: var(--jb-cor-textos);
+        font-family: var(--jb-fonte-titulo);
+    }
+    
+    /*TEXT FOR EXPERIENCE*/
+    .jb-experience-text {
+        color: var(--jb-cor-textos);
+        font-family: var(--jb-fonte-texto);
+    }
+    
+    /*DESCRIPTION FOR EXPERIENCES*/
+    .jb-experience-description {
+        padding: 5px;
+    }
+    
+    .jb-experience-title-two {
+        color: var(--jb-cor-textos);
+        font-family: var(--jb-fonte-titulo);;
+        text-align: center;
+    }
+    
+    .jb-experience-text {
+        color: var(--jb-cor-textos);
+        font-family: var(--jb-fonte-texto);
+        text-align: center;
+    }
+    
+    /*JOB DESCRIPTION TEXT*/
+    .jb-experience-text-description {
+        text-align: left;
+    }
+    
+    /*-------------------------------------------FOOTER------------------------------------*/
+    
+    .jb-footer {
+        margin-top: 100px;
+        padding: 0;
+        box-shadow: 0px 0px 9px 1px var(--jb-cor-secundaria);
+        padding-top: 10px;
+        display: grid;
+        align-items: end;
+    }
+    
+    /*CONTACTS LIST*/
+    .jb-footer-contatos {
+        list-style-type: none;
+        display: grid;
+        gap: 10px;
+        padding: 0 50px;
+    }
+    
+    .jb-footer-contact-link {
+        gap: 10px;
+        display: flex;
+        justify-content: left;
+    }
+    
+    .jb-footer-contact-link a {
+        text-decoration: none;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        font-family: var(--jb-fonte-texto);
+        color: var(--jb-cor-textos);
+        font-weight: 300;
+        width: max-content;
+        border-radius: 5px;
+        padding: 4px;
+    }
+    
+    .jb-footer-contact-link a:hover {
+        box-shadow: 0px 0px 2px 2px var(--jb-cor-secundaria);
+        background-color: var(--jb-background-header-footer);
+    }
+    
+    .jb-contact-img {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .jb-footer-end {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .jb-footer-title-email {
+        font-family: var(--jb-fonte-titulo);
+        color: var(--jb-cor-textos);
+    }
+    
+    .jb-end-email-text {
+        font-family: var(--jb-fonte-texto);
+        color: var(--jb-cor-textos);
+        font-weight: 200;
+    }
+    
+    .jb-end-copyright {
+        color: var(--jb-cor-textos);
+        font-family: var(--jb-fonte-texto);
+        margin-top: 20px;
+        font-weight: 200;
+    }
+}
