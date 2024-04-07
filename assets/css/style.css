@@ -795,16 +795,21 @@ body::-webkit-scrollbar-thumb{
     }
 
     .jb-top-nome {
-        width: 470px;
+        width: max-content;
+        text-align: left;
+    }
+
+    .jb-top-nome br {
+        display: none;
     }
 
     .jb-lista-formacoes {
         grid-template-columns: 1fr 1fr 1fr;
-        gap: 0px;
+        gap: 19px;
     }
 
     .jb-formacoes-dados {
-        width: 240px;
+        width: 230px;
     }
 
     .jb-hard-skills-itens {
