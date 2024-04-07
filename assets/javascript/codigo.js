@@ -39,15 +39,67 @@ if (!localStorage.getItem(themeCurrent)) {
 
             localStorage.setItem(themeCurrent, 'light');
             imgLightMode.classList += " chosen";
+
+            document.documentElement.style.setProperty('--jb-cor-primaria', '#ffffff');
+            document.documentElement.style.setProperty('--jb-cor-secundaria', '#021c8b');
+            document.documentElement.style.setProperty('--jb-cor-tercearia', '#191013');
+            document.documentElement.style.setProperty('--jb-cor-textos', '#000');
+            document.documentElement.style.setProperty('--jb-background-header-footer', '#ffffff');
+            document.documentElement.style.setProperty('--jb-cor-buttons', '#8d8882');
+            document.documentElement.style.setProperty('--jb-cor-chosen', '#ffffff');
+
+            //MUDAR IMAGEM
+            ModeLight.src = "assets/modosDeCor/light_mode/sol_light_mode.png";
+            ModeDefault.src = "assets/modosDeCor/light_mode/default_light_mode.png";
+            ModeDark.src = "assets/modosDeCor/light_mode/lua_light_mode.png";
+            
+            imgDefaultMode.classList.remove("chosen");
+            imgDarkMode.classList.remove("chosen");
+            imgLightMode.classList += " chosen";
+
         }
-        else if ((horario >= 18) || (minutos < 6)){
+        else if ((horario >= 18) || (horario < 6)){
 
             localStorage.setItem(themeCurrent, 'dark');
+            imgDarkMode.classList += " chosen";
+
+            document.documentElement.style.setProperty('--jb-cor-primaria', '#000');
+            document.documentElement.style.setProperty('--jb-cor-secundaria', '#fc0000');
+            document.documentElement.style.setProperty('--jb-cor-tercearia', '#191013');
+            document.documentElement.style.setProperty('--jb-cor-textos', '#bbbbbb');
+            document.documentElement.style.setProperty('--jb-background-header-footer', '#000');
+            document.documentElement.style.setProperty('--jb-cor-buttons', 'rgba(255, 255, 255, .2)');
+            document.documentElement.style.setProperty('--jb-cor-chosen', '#000000');
+
+            //MUDAR IMAGEM
+            ModeLight.src = "assets/modosDeCor/dark_mode/sol_dark_mode.png";
+            ModeDefault.src = "assets/modosDeCor/dark_mode/default_dark_mode.png";
+            ModeDark.src = "assets/modosDeCor/dark_mode/lua_dark_mode.png";
+
+            imgLightMode.classList.remove("chosen");
+            imgDefaultMode.classList.remove("chosen");
             imgDarkMode.classList += " chosen";
         }
         else {
             
             localStorage.setItem(themeCurrent, 'default');
+            imgDefaultMode.classList += " chosen";
+
+            document.documentElement.style.setProperty('--jb-cor-primaria', '#000e33');
+            document.documentElement.style.setProperty('--jb-cor-secundaria', '#f4f4f2');
+            document.documentElement.style.setProperty('--jb-cor-tercearia', '#191013');
+            document.documentElement.style.setProperty('--jb-cor-textos', '#f4f4f2');
+            document.documentElement.style.setProperty('--jb-background-header-footer', 'rgba(0, 0, 0, .3)');
+            document.documentElement.style.setProperty('--jb-cor-buttons', '#8989898c');
+            document.documentElement.style.setProperty('--jb-cor-chosen', 'var(--jb-cor-primaria)');
+
+            //MUDAR IMAGEM
+            ModeLight.src = "assets/modosDeCor/default_mode/lightMode.png";
+            ModeDefault.src = "assets/modosDeCor/default_mode/defaultMode.png";
+            ModeDark.src = "assets/modosDeCor/default_mode/darkMode.png";
+
+            imgLightMode.classList.remove("chosen");
+            imgDarkMode.classList.remove("chosen");
             imgDefaultMode.classList += " chosen";
         }
 }
@@ -108,7 +160,7 @@ else {
 
             imgLightMode.classList.remove("chosen");
             imgDefaultMode.classList.remove("chosen");
-            imgDarkMode.classList += " chosen";    
+            imgDarkMode.classList += " chosen";
             break;
     }
 }
