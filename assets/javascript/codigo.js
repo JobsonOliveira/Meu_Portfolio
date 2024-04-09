@@ -10,7 +10,7 @@ const imgDefaultMode = document.querySelector(".defaultMode");
 const imgDarkMode = document.querySelector(".darkMode");
 
 
-//================================Apresenta o dialog e adiciona o conteúdo nele
+//================================Apresenta o dialog e adiciona o conteúdo nele (Minha foto)
 function ampliador (conteudo) {
     dialog.style.display = "flex";
     
@@ -257,96 +257,70 @@ function mudoModeColor (theme) {
 }
 
 //=================================Mudar o idioma do portfólio
-var comboGoogleTradutor = null;
-
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-        includedLanguages: 'pt,en,es',
-        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
-    }, 'google_translate_element');
-
-    comboGoogleTradutor = document.getElementById("google_translate_element").querySelector(".goog-te-combo");
-
-}
-
-function changeEvent(sigla) {
-    
-    if (sigla.fireEvent) {
-        sigla.fireEvent('onchange');
-    } else {
-        var evObj = document.createEvent("HTMLEvents");
-
-        evObj.initEvent("change", false, true);
-        sigla.dispatchEvent(evObj);
-    }
-
-}
 
 function trocarIdioma(sigla) {
-    if (comboGoogleTradutor) {
-        comboGoogleTradutor.value = sigla;
-        changeEvent(comboGoogleTradutor);//Dispara a troca
-    
-        //Button de idiomas
-        const mostrarIdiomas = document.querySelector('#buttonIdiomas');
-        
-        //Bandeira - Inglês
-        const bandPortugues = `<div class='card card-body' id="jbPortugues"> <img src='assets/indiomas/Portugues.svg' alt='imagem idiomas' class='jb-idiomas-bandeira'> </div>`;
 
-        //Bandeira - Inglês
-        const bandIngles = `<div class='card card-body' id="jbIngles"> <img src='assets/indiomas/Ingles.svg' alt='imagem idiomas' class='jb-idiomas-bandeira'> </div>`;
+    //Seleção de elementos
+    const sobreMim = document.querySelector('#jb_sobreMim_texto');
+    const mostrarIdiomas = document.querySelector('#buttonIdiomas');
+    const lisIdiomas = document.querySelector('#collapseWidthExample');
         
-        const lisIdiomas = document.querySelector("#collapseWidthExample");
-        
-        switch (sigla) {
-            case 'pt':
-                //Seleciona a bandeira de ingles
-                var el = document.querySelector('#jbPortugues');
-                
-                
-                //Remove o idioma da lista de seleção
-                el.parentNode.removeChild(el);
-                
-                //Adiciona o idioma anterior de volta na lista de seleção
-                lisIdiomas.innerHTML += `
-                <div class="card card-body" id="jbIngles">
-                    <a href="javascript:trocarIdioma('en')" class="jb-idioma-link">
-                    <img src="assets/indiomas/Ingles.svg" alt="imagem idiomas" class="jb-idiomas-bandeira">
-                    </a>
-                </div>`;
-
-                //Adiciona ele como selecionado
-                mostrarIdiomas.innerHTML = bandPortugues;
-
-                //Fecha o seletor
-                lisIdiomas.classList.remove("show");
-                break;
-                
-            case 'en':
-                //Seleciona a bandeira de ingles
-                var el = document.querySelector('#jbIngles');
-                
-                
-                //Remove o idioma da lista de seleção
-                el.parentNode.removeChild(el);
-                
-                //Adiciona o idioma anterior de volta na lista de seleção
-                lisIdiomas.innerHTML += `<div class="card card-body" id="jbPortugues">
-                <a href="javascript:trocarIdioma('pt')" class="jb-idioma-link">
-                  <img src="assets/indiomas/Portugues.svg" alt="imagem idiomas" class="jb-idiomas-bandeira">
+    switch (sigla) {
+        case 'pt':
+            //Seleciona a bandeira de ingles
+            var el = document.querySelector('#jbPortugues');
+            
+            
+            //Remove o idioma da lista de seleção
+            el.parentNode.removeChild(el);
+            
+            
+            //Adiciona o idioma anterior de volta na lista de seleção
+            lisIdiomas.innerHTML += `
+            <div class="card card-body" id="jbIngles">
+                <a href="javascript:trocarIdioma('en')" class="jb-idioma-link">
+                <img src="assets/indiomas/Ingles.svg" alt="imagem idiomas" class="jb-idiomas-bandeira">
                 </a>
-              </div>`;
+            </div>`;
 
-                //Adiciona ele como selecionado
-                mostrarIdiomas.innerHTML = bandIngles;
+            //Adiciona ele como selecionado
+            mostrarIdiomas.innerHTML = bandPortugues;
 
-                //Fecha o seletor
-                lisIdiomas.classList.remove("show");
-                break;
-        }
+            //Fecha o seletor
+            lisIdiomas.classList.remove("show");
 
+            sobreMim.innerHTML = `&nbsp;&nbsp;Sou um rapaz calmo, esforçado e amante da tecnologia, procuro sempre aplicar meus conhecimentos da melhor forma possível em tudo que faço, para poder fornecer o melhor resultado possível e superar até minhas próprias expectativas.<br>
+            &nbsp;&nbsp;Conheci o mundo da programação durante o ensino médio, onde iniciei um curso de lógica de programação, em Janeiro de 2022 comecei meus estudos de Análise e desenvolvimento de sistemas na UNIBRA-Centro Universitário Brasileiro, onde passei a amar ainda mais o mundo da programação.`;
+            break;
+            
+        case 'en':
+            //Seleciona a bandeira de ingles
+            var el = document.querySelector('#jbIngles');
+            
+            
+            //Remove o idioma da lista de seleção
+            el.parentNode.removeChild(el);
+            
+            //Adiciona o idioma anterior de volta na lista de seleção
+            lisIdiomas.innerHTML += `<div class="card card-body" id="jbPortugues">
+            <a href="javascript:trocarIdioma('pt')" class="jb-idioma-link">
+                <img src="assets/indiomas/Portugues.svg" alt="imagem idiomas" class="jb-idiomas-bandeira">
+            </a>
+            </div>`;
+
+            //Adiciona ingles como selecionado
+            mostrarIdiomas.innerHTML = bandIngles;
+
+            //Fecha o seletor
+            lisIdiomas.classList.remove("show");
+
+            sobreMim.innerHTML = `&nbsp;&nbsp;I'm a calm, hard-working guy who loves technology, I always try to apply my knowledge in the best way possible in everything I do, to be able to provide the best possible result and exceed even my own expectations.<br>
+            &nbsp;&nbsp;I discovered the world of programming during high school, where I started a programming logic course, in January 2022 I started my studies in Systems Analysis and Development at UNIBRA-Centro Universitário Brasileiro, where I came to love the world even more world of programming.`;
+            break;
     }
+
 }
+
 
 function lerCookie(nome) {
     const cookies = document.cookie.split('; ');
@@ -360,21 +334,21 @@ function lerCookie(nome) {
 }
 
 //Verifica o idioma que foi selecionado previamente
-    if(lerCookie('googtrans') == "/auto/pt") {
-        document.querySelector('#buttonIdiomas').innerHTML = `
-            <div class="card card-body" id="jbPortugues">
-                <a href="javascript:trocarIdioma('pt')" class="jb-idioma-link">
-                    <img src="assets/indiomas/Portugues.svg" alt="imagem idiomas" class="jb-idiomas-bandeira">
-                </a>
-            </div>
-        `;
-    }
-    else if(lerCookie('googtrans') == "/auto/en") {
-        document.querySelector('#buttonIdiomas').innerHTML = `
-            <div class="card card-body" id="jbIngles">
-                <a href="javascript:trocarIdioma('en')" class="jb-idioma-link">
-                    <img src="assets/indiomas/Ingles.svg" alt="imagem idiomas" class="jb-idiomas-bandeira">
-                </a>
-            </div>
-        `;
-    }
+if(lerCookie('googtrans') == "/auto/pt") {
+    document.querySelector('#buttonIdiomas').innerHTML = `
+        <div class="card card-body" id="jbPortugues">
+            <a href="javascript:trocarIdioma('pt')" class="jb-idioma-link">
+                <img src="assets/indiomas/Portugues.svg" alt="imagem idiomas" class="jb-idiomas-bandeira">
+            </a>
+        </div>
+    `;
+}
+else if(lerCookie('googtrans') == "/auto/en") {
+    document.querySelector('#buttonIdiomas').innerHTML = `
+        <div class="card card-body" id="jbIngles">
+            <a href="javascript:trocarIdioma('en')" class="jb-idioma-link">
+                <img src="assets/indiomas/Ingles.svg" alt="imagem idiomas" class="jb-idiomas-bandeira">
+            </a>
+        </div>
+    `;
+}
