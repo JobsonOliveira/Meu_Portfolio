@@ -361,11 +361,15 @@ body::-webkit-scrollbar-thumb{
 /*-------------------------------------------MAIN------------------------------------*/
 .jb-information {
     padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /*Estilização geral dos articles do main*/
 .jb-articles-information {
     height: max-content;
+    max-width: 1400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -495,7 +499,7 @@ body::-webkit-scrollbar-thumb{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
-    align-items: end;
+    align-items: center;
     list-style-type: none;
     padding: 0;
     align-items: center;
@@ -515,6 +519,10 @@ body::-webkit-scrollbar-thumb{
 
 .jb-skills-git {
     width: 68px;
+}
+
+.jb-postman {
+    width: 50px;
 }
 
 .accordion-button::after {
@@ -1043,9 +1051,9 @@ body::-webkit-scrollbar-thumb{
         align-items: center;
     }
     
-.jb-top-nome br {
-    display: none;
-}
+    .jb-top-nome br {
+        display: none;
+    }
 
     /*NOME DA PESSOA NO HEADER*/
     .jb-top-nome span{
@@ -1205,6 +1213,7 @@ body::-webkit-scrollbar-thumb{
     /*Estilização geral dos articles do main*/
     .jb-articles-information {
         height: max-content;
+        max-width: 1400px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1327,7 +1336,7 @@ body::-webkit-scrollbar-thumb{
     .jb-hard-skills-itens {
         display: flex;
         gap: 50px;
-        align-items: end;
+        align-items: center;
     }
     
     /*IMAGENS DAS TECNOLOGIAS UTILIZADAS*/
